@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, FileText, TrendingUp } from 'lucide-react';
+import { FileText, TrendingUp } from 'lucide-react';
 
 const Hero = () => {
   return (

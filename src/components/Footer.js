@@ -12,18 +12,18 @@ import {
 
 const Footer = () => {
   const socialLinks = [
-    { name: 'Twitter', icon: <Twitter className="w-5 h-5" />, href: '#', color: 'hover:text-blue-400' },
-    { name: 'Discord', icon: <MessageCircle className="w-5 h-5" />, href: '#', color: 'hover:text-purple-400' },
-    { name: 'Telegram', icon: <MessageCircle className="w-5 h-5" />, href: '#', color: 'hover:text-blue-500' },
-    { name: 'GitHub', icon: <Github className="w-5 h-5" />, href: '#', color: 'hover:text-gray-400' },
+    { name: 'Twitter', icon: <Twitter className="w-5 h-5" />, href: 'https://twitter.com/berrycoin', color: 'hover:text-blue-400' },
+    { name: 'Discord', icon: <MessageCircle className="w-5 h-5" />, href: 'https://discord.gg/berrycoin', color: 'hover:text-purple-400' },
+    { name: 'Telegram', icon: <MessageCircle className="w-5 h-5" />, href: 'https://t.me/berrycoin', color: 'hover:text-blue-500' },
+    { name: 'GitHub', icon: <Github className="w-5 h-5" />, href: 'https://github.com/DevMindPro/berry-coin-website', color: 'hover:text-gray-400' },
     { name: 'Email', icon: <Mail className="w-5 h-5" />, href: 'mailto:info@berrycoin.com', color: 'hover:text-red-400' }
   ];
 
   const quickLinks = [
-    { name: 'Whitepaper', icon: <FileText className="w-4 h-4" />, href: '#' },
-    { name: 'Security Audit', icon: <Shield className="w-4 h-4" />, href: '#' },
-    { name: 'Community', icon: <Users className="w-4 h-4" />, href: '#' },
-    { name: 'Documentation', icon: <Globe className="w-4 h-4" />, href: '#' }
+    { name: 'Whitepaper', icon: <FileText className="w-4 h-4" />, href: '#whitepaper' },
+    { name: 'Security Audit', icon: <Shield className="w-4 h-4" />, href: '#security' },
+    { name: 'Community', icon: <Users className="w-4 h-4" />, href: '#community' },
+    { name: 'Documentation', icon: <Globe className="w-4 h-4" />, href: '#documentation' }
   ];
 
   return (
@@ -115,9 +115,9 @@ const Footer = () => {
               © 2024 Berry Coin. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors duration-300">Risk Disclosure</a>
+              <button className="hover:text-white transition-colors duration-300">Privacy Policy</button>
+              <button className="hover:text-white transition-colors duration-300">Terms of Service</button>
+              <button className="hover:text-white transition-colors duration-300">Risk Disclosure</button>
             </div>
           </div>
         </div>

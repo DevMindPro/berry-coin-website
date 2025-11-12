@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   Coins, 
   TrendingDown, 
-  PieChart, 
   Wallet,
   ArrowLeftRight,
   Image,

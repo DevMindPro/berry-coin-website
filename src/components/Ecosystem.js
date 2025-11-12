@@ -4,14 +4,12 @@ import {
   Coins, 
   Image, 
   CreditCard, 
-  Users, 
   Building2,
   Zap,
   Shield,
   Globe,
   TrendingUp,
-  Vote,
-  Wallet
+  Vote
 } from 'lucide-react';
 
 const Ecosystem = () => {
