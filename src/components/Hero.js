@@ -18,8 +18,8 @@ const Hero = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
-            The next-generation decentralized digital asset built to bridge blockchain innovation with real-world value.
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-4xl mx-auto">
+            A next-generation decentralized digital asset powered by our LLM-driven engine that autonomously analyzes global markets in real time, executing adaptive, precision trades to seamlessly bridge blockchain innovation with real-world value.
           </p>
 
           {/* Key Features Tags */}
