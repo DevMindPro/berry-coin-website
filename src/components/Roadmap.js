@@ -132,66 +132,71 @@ const Roadmap = () => {
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Timeline Line - Desktop */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 to-berry-500 rounded-full"></div>
-          
-          {/* Timeline Line - Mobile */}
-          <div className="lg:hidden absolute left-6 top-0 w-1 h-full bg-gradient-to-b from-primary-500 to-berry-500 rounded-full"></div>
+        {/* Mobile Timeline */}
+        <div className="lg:hidden space-y-6">
+          {phases.map((phase, index) => (
+            <div key={phase.phase} className="relative flex">
+              {/* Timeline Column */}
+              <div className="flex flex-col items-center mr-6">
+                <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} flex items-center justify-center text-white font-bold text-base z-10 shadow-lg`}>
+                  {phase.phase}
+                </div>
+                {index < phases.length - 1 && (
+                  <div className="w-0.5 h-20 bg-gradient-to-b from-primary-500 to-berry-500 mt-2"></div>
+                )}
+              </div>
+
+              {/* Content Card */}
+              <div className="flex-1">
+                <div className="card group">
+                  <div className="flex items-start space-x-3 mb-4">
+                    <div className={`p-2 rounded-lg bg-gradient-to-r ${getStatusColor(phase.status)} text-white flex-shrink-0`}>
+                      {phase.icon}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                          Phase {phase.phase}
+                        </h3>
+                        <div className={`flex items-center space-x-1 px-2 py-1 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} text-white text-xs`}>
+                          {getStatusIcon(phase.status)}
+                          <span className="capitalize">{phase.status.replace('-', ' ')}</span>
+                        </div>
+                      </div>
+                      <p className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
+                        {phase.title}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Objectives:</h4>
+                    <ul className="space-y-2">
+                      {phase.objectives.map((objective, objIndex) => (
+                        <li key={objIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                          <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></div>
+                          {objective}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Timeline */}
+        <div className="hidden lg:block relative">
+          {/* Timeline Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 to-berry-500 rounded-full"></div>
 
           {/* Timeline Items */}
-          <div className="space-y-8 lg:space-y-12">
+          <div className="space-y-12">
             {phases.map((phase, index) => (
-              <div key={phase.phase} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex-row`}>
-                {/* Mobile Layout: Always left-aligned */}
-                <div className="lg:hidden w-full">
-                  <div className="ml-16 card group hover:scale-105 transition-all duration-300">
-                    {/* Phase Header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <div className={`p-2 rounded-lg bg-gradient-to-r ${getStatusColor(phase.status)} text-white`}>
-                          {phase.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                            Phase {phase.phase}
-                          </h3>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
-                            {phase.title}
-                          </p>
-                        </div>
-                      </div>
-                      <div className={`flex items-center space-x-1 px-2 py-1 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} text-white text-xs`}>
-                        {getStatusIcon(phase.status)}
-                        <span className="capitalize">{phase.status.replace('-', ' ')}</span>
-                      </div>
-                    </div>
-
-                    {/* Objectives */}
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Objectives:</h4>
-                      <ul className="space-y-2">
-                        {phase.objectives.map((objective, objIndex) => (
-                          <li key={objIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></div>
-                            {objective}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mobile Timeline Node */}
-                <div className="lg:hidden absolute left-6 transform -translate-x-1/2">
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} flex items-center justify-center text-white font-bold text-sm z-10 relative`}>
-                    {phase.phase}
-                  </div>
-                </div>
-
-                {/* Desktop Layout */}
-                <div className="hidden lg:block lg:w-5/12">
+              <div key={phase.phase} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                {/* Content Card */}
+                <div className="w-5/12">
                   <div className="card group hover:scale-105 transition-all duration-300">
                     {/* Phase Header */}
                     <div className="flex items-center justify-between mb-4">
@@ -229,15 +234,15 @@ const Roadmap = () => {
                   </div>
                 </div>
 
-                {/* Desktop Timeline Node */}
-                <div className="hidden lg:flex lg:w-2/12 justify-center">
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} flex items-center justify-center text-white font-bold text-sm z-10 relative`}>
+                {/* Timeline Node */}
+                <div className="w-2/12 flex justify-center">
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} flex items-center justify-center text-white font-bold text-sm z-10 relative shadow-lg`}>
                     {phase.phase}
                   </div>
                 </div>
 
-                {/* Desktop Spacer */}
-                <div className="hidden lg:block lg:w-5/12"></div>
+                {/* Spacer */}
+                <div className="w-5/12"></div>
               </div>
             ))}
           </div>
