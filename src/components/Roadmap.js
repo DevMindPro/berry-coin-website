@@ -133,52 +133,58 @@ const Roadmap = () => {
         </div>
 
         {/* Mobile Timeline */}
-        <div className="lg:hidden space-y-6">
+        <div className="lg:hidden space-y-8">
           {phases.map((phase, index) => (
-            <div key={phase.phase} className="relative flex">
-              {/* Timeline Column */}
-              <div className="flex flex-col items-center mr-6">
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} flex items-center justify-center text-white font-bold text-base z-10 shadow-lg`}>
-                  {phase.phase}
+            <div key={phase.phase} className="relative">
+              <div className="flex items-start">
+                {/* Timeline Column */}
+                <div className="flex flex-col items-center mr-4 flex-shrink-0">
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg`}>
+                    {phase.phase}
+                  </div>
+                  {index < phases.length - 1 && (
+                    <div className="w-0.5 h-24 bg-gradient-to-b from-primary-500 to-berry-500 mt-3"></div>
+                  )}
                 </div>
-                {index < phases.length - 1 && (
-                  <div className="w-0.5 h-20 bg-gradient-to-b from-primary-500 to-berry-500 mt-2"></div>
-                )}
-              </div>
 
-              {/* Content Card */}
-              <div className="flex-1">
-                <div className="card group">
-                  <div className="flex items-start space-x-3 mb-4">
-                    <div className={`p-2 rounded-lg bg-gradient-to-r ${getStatusColor(phase.status)} text-white flex-shrink-0`}>
-                      {phase.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                          Phase {phase.phase}
-                        </h3>
-                        <div className={`flex items-center space-x-1 px-2 py-1 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} text-white text-xs`}>
+                {/* Content Card */}
+                <div className="flex-1 min-w-0">
+                  <div className="card">
+                    {/* Phase Header */}
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-3">
+                          <div className={`p-2 rounded-lg bg-gradient-to-r ${getStatusColor(phase.status)} text-white`}>
+                            {phase.icon}
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                              Phase {phase.phase}
+                            </h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                              {phase.title}
+                            </p>
+                          </div>
+                        </div>
+                        <div className={`flex items-center space-x-1 px-2 py-1 rounded-full bg-gradient-to-r ${getStatusColor(phase.status)} text-white text-xs flex-shrink-0`}>
                           {getStatusIcon(phase.status)}
-                          <span className="capitalize">{phase.status.replace('-', ' ')}</span>
+                          <span className="capitalize hidden sm:inline">{phase.status.replace('-', ' ')}</span>
                         </div>
                       </div>
-                      <p className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
-                        {phase.title}
-                      </p>
                     </div>
-                  </div>
 
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Objectives:</h4>
-                    <ul className="space-y-2">
-                      {phase.objectives.map((objective, objIndex) => (
-                        <li key={objIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                          <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></div>
-                          {objective}
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Objectives */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Objectives:</h4>
+                      <ul className="space-y-2">
+                        {phase.objectives.map((objective, objIndex) => (
+                          <li key={objIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></div>
+                            <span className="leading-relaxed">{objective}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
