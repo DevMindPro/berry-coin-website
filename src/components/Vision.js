@@ -56,8 +56,8 @@ const Vision = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Our Vision: <span className="bg-gradient-to-r from-primary-600 to-berry-600 bg-clip-text text-transparent">Bridging the Divide</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            To create a decentralized, community-driven ecosystem where blockchain meets real-world assets and utility.
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            A next-generation AI Fund and WealthTech platform that fuses artificial intelligence, quantitative finance, and global market access to help investors make smarter, faster, and more adaptive financial decisions. We specialize in developing intelligent investment systems that optimize portfolios, enhance transparency, and empower both institutions and individual investors worldwide.
           </p>
         </div>
 
