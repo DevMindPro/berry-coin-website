@@ -85,13 +85,10 @@ const Ecosystem = () => {
               className="card group hover:scale-105 transition-all duration-300"
             >
               {/* Header with Icon */}
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-start mb-4">
                 <div className={`p-3 rounded-xl bg-gradient-to-r ${component.color} text-white group-hover:scale-110 transition-transform`}>
                   {component.icon}
                 </div>
-                <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">
-                  {component.id}
-                </span>
               </div>
 
               {/* Title */}
